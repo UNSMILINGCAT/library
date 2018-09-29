@@ -1,0 +1,31 @@
+<!--<?xml version='1.0' encoding='utf-8'?>-->
+<!--<!DOCTYPE hibernate-mapping PUBLIC-->
+        <!--"-//Hibernate/Hibernate Mapping DTD 3.0//EN"-->
+        <!--"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">-->
+<!--<hibernate-mapping>-->
+
+    <!--<class name="com.librarymanager.data.BookBrowse" table="bookBrowse" schema="dbo" catalog="library">-->
+        <!--<id name="id">-->
+            <!--<column name="ID" sql-type="numeric(3)" precision="3"/>-->
+            <!--<generator class="increment"/>-->
+        <!--</id>-->
+        <!--<property name="studentName">-->
+            <!--<column name="StudentName" sql-type="varchar(40)" length="40" not-null="true"/>-->
+        <!--</property>-->
+        <!--<property name="bookName">-->
+            <!--<column name="BookName" sql-type="varchar(40)" length="40" not-null="true"/>-->
+        <!--</property>-->
+        <!--<property name="returnDate">-->
+            <!--<column name="ReturnDate" sql-type="date" not-null="true"/>-->
+        <!--</property>-->
+        <!--<property name="borrowDate">-->
+            <!--<column name="BorrowDate" sql-type="date" not-null="true"/>-->
+        <!--</property>-->
+        <!--<property name="com">-->
+            <!--<column name="Com" sql-type="varchar(40)" length="40" not-null="true"/>-->
+        <!--</property>-->
+        <!--<property name="isReturned">-->
+            <!--<column name="Is_Returned" sql-type="char(2)" length="2" not-null="true"/>-->
+        <!--</property>-->
+    <!--</class>-->
+<!--</hibernate-mapping>-->

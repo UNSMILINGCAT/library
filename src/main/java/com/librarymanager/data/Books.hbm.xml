@@ -1,0 +1,40 @@
+<!--<?xml version='1.0' encoding='utf-8'?>-->
+<!--<!DOCTYPE hibernate-mapping PUBLIC-->
+        <!--"-//Hibernate/Hibernate Mapping DTD 3.0//EN"-->
+        <!--"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">-->
+<!--<hibernate-mapping>-->
+
+    <!--<class name="com.librarymanager.data.Books" table="books" schema="dbo" catalog="library">-->
+        <!--<id name="id">-->
+            <!--<column name="ID" sql-type="numeric(3)" precision="3"/>-->
+            <!--<generator class="increment"/>-->
+        <!--</id>-->
+        <!--<property name="bookName">-->
+            <!--<column name="BookName" sql-type="varchar(20)" length="20" not-null="false"/>-->
+        <!--</property>-->
+        <!--<property name="press">-->
+            <!--<column name="Press" sql-type="varchar(20)" length="20" not-null="false"/>-->
+        <!--</property>-->
+        <!--<property name="author">-->
+            <!--<column name="Author" sql-type="varchar(20)" length="20" not-null="false"/>-->
+        <!--</property>-->
+        <!--<property name="pressDate">-->
+            <!--<column name="PressDate" sql-type="date" not-null="false"/>-->
+        <!--</property>-->
+        <!--<property name="price">-->
+            <!--<column name="Price" sql-type="numeric(5,2)" precision="5" scale="2" not-null="false"/>-->
+        <!--</property>-->
+        <!--<property name="com">-->
+            <!--<column name="Com" sql-type="varchar(20)" length="20" not-null="false"/>-->
+        <!--</property>-->
+        <!--<property name="booksCount">-->
+            <!--<column name="books_count" sql-type="numeric(2)" precision="2" not-null="false"/>-->
+        <!--</property>-->
+        <!--<property name="borrowedCount">-->
+            <!--<column name="borrowed_count" sql-type="numeric(2)" precision="2" not-null="false"/>-->
+        <!--</property>-->
+        <!--<property name="address">-->
+            <!--<column name="address" sql-type="varchar(50)" length="50" not-null="false"/>-->
+        <!--</property>-->
+    <!--</class>-->
+<!--</hibernate-mapping>-->
