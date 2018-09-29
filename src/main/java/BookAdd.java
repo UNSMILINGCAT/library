@@ -1,6 +1,6 @@
 //import com.datepicker.component.CalendarPanel;
-//import com.librarymanager.dao.BooksDAO;
-//import com.librarymanager.data.Books;
+//import com.library.dao.BooksDAO;
+//import com.library.data.Books;
 //
 //import java.awt.*;
 //import java.awt.event.*;
@@ -23,7 +23,7 @@
 //            AddressTextField, PressDateTextField, PriceTextField,
 //            BookCountTextField, CommentTextField;
 //    Container c;
-//    JButton ClearBtn, AddBtn, ExitBtn;
+//    JButton ClearBtn, addBtn, ExitBtn;
 //
 //    public BookAdd()
 //    {
@@ -72,12 +72,12 @@
 //        panel2.setLayout(new GridLayout(1, 3));
 //        ClearBtn = new JButton("清空");
 //        ClearBtn.addActionListener(this);
-//        AddBtn = new JButton("添加");
-//        AddBtn.addActionListener(this);
+//        addBtn = new JButton("添加");
+//        addBtn.addActionListener(this);
 //        ExitBtn = new JButton("退出");
 //        ExitBtn.addActionListener(this);
 //        panel2.add(ClearBtn);
-//        panel2.add(AddBtn);
+//        panel2.add(addBtn);
 //        panel2.add(ExitBtn);
 //        c.add(panel1, BorderLayout.CENTER);
 //        c.add(panel2, BorderLayout.SOUTH);
@@ -99,7 +99,7 @@
 //            PriceTextField.setText("");
 //            BookCountTextField.setText("");
 //            CommentTextField.setText("");
-//        } else if (e.getSource() == AddBtn)
+//        } else if (e.getSource() == addBtn)
 //        {
 //            if (BookNameTextField.getText().trim().equals(""))
 //            {

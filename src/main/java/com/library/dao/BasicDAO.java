@@ -1,4 +1,4 @@
-package com.librarymanager.dao;
+package com.library.dao;
 
 
 import java.lang.reflect.ParameterizedType;

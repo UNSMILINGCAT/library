@@ -1,6 +1,4 @@
-//import com.librarymanager.dao.UserTableDAO;
-//import com.librarymanager.data.UserTable;
-//import org.hibernate.query.Query;
+//import com.library.data.UserTable;
 //
 //import java.awt.*;
 //import java.awt.event.*;
@@ -10,37 +8,36 @@
 //public class UserDelete extends JFrame implements ActionListener
 //{
 //    UserTable userTable = new UserTable();
-//    DataBaseManager db = new DataBaseManager();
 //    ResultSet rs;
 //    JPanel panel1, panel2;
 //    Container c;
-//    JLabel UserLabel, PasswordLabel;
-//    JTextField UserTextField;
-//    JPasswordField PasswordTextField;
-//    JButton YesBtn, CancelBtn;
+//    JLabel userLabel, passwordLabel;
+//    JTextField userTextField;
+//    JPasswordField passwordTextField;
+//    JButton YesBtn, cancelBtn;
 //
 //    public UserDelete()
 //    {
 //        super("删除用户");
 //        c = getContentPane();
 //        c.setLayout(new BorderLayout());
-//        UserLabel = new JLabel("用户名", JLabel.CENTER);
-//        PasswordLabel = new JLabel("密码", JLabel.CENTER);
-//        UserTextField = new JTextField(10);
-//        PasswordTextField = new JPasswordField(10);
+//        userLabel = new JLabel("用户名", JLabel.CENTER);
+//        passwordLabel = new JLabel("密码", JLabel.CENTER);
+//        userTextField = new JTextField(10);
+//        passwordTextField = new JPasswordField(10);
 //        YesBtn = new JButton("确定");
-//        CancelBtn = new JButton("取消");
+//        cancelBtn = new JButton("取消");
 //        YesBtn.addActionListener(this);
-//        CancelBtn.addActionListener(this);
+//        cancelBtn.addActionListener(this);
 //        panel1 = new JPanel();
 //        panel1.setLayout(new GridLayout(2, 2));
-//        panel1.add(UserLabel);
-//        panel1.add(UserTextField);
-//        panel1.add(PasswordLabel);
-//        panel1.add(PasswordTextField);
+//        panel1.add(userLabel);
+//        panel1.add(userTextField);
+//        panel1.add(passwordLabel);
+//        panel1.add(passwordTextField);
 //        panel2 = new JPanel();
 //        panel2.add(YesBtn);
-//        panel2.add(CancelBtn);
+//        panel2.add(cancelBtn);
 //        c.add(panel1, BorderLayout.CENTER);
 //        c.add(panel2, BorderLayout.SOUTH);
 //        setSize(300, 300);
@@ -48,7 +45,7 @@
 //
 //    public void actionPerformed(ActionEvent e)
 //    {
-//        if (e.getSource() == CancelBtn)
+//        if (e.getSource() == cancelBtn)
 //        {
 //            this.dispose();
 //        } else if (e.getSource() == YesBtn)
@@ -56,16 +53,16 @@
 //            String hql = "from UserTable where userName=? and passWord=?";
 //            String sql = "delete from UserTable where userName=? and passWord=?";
 //            Query<UserTable> query = UserTableDAO.getQuery(hql);
-//            char[] password = PasswordTextField.getPassword();
+//            char[] password = passwordTextField.getPassword();
 //            String passwordSTR = new String(password);
-//            userTable.setUsername(UserTextField.getText().trim());
+//            userTable.setUsername(userTextField.getText().trim());
 //            userTable.setPassword(passwordSTR);
 //            query.setString(0, userTable.getUsername());
 //            query.setString(1, userTable.getPassword());
-//            if (UserTextField.getText().trim().equals(""))
+//            if (userTextField.getText().trim().equals(""))
 //            {
 //                JOptionPane.showMessageDialog(null, "用户名不能为空！");
-//            } else if (PasswordTextField.equals(""))
+//            } else if (passwordTextField.equals(""))
 //            {
 //                JOptionPane.showMessageDialog(null, "密码不能为空！");
 //            } else if (UserTableDAO.selectUser(query) != null)

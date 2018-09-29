@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.library.mapper.UserTableMapper">
+
+    <resultMap id="userTable" type="com.library.data.UserTable">
+        <result property="id" column="id"/>
+        <result property="username" column="username"/>
+        <result property="password" column="password"/>
+        <result property="power" column="power"/>
+    </resultMap>
+
+    <select id="select" parameterType="string" resultMap="userTable">
+        select *
+        from library.user_table where username=#{username}
+    </select>
+
+    <insert id="addUser" parameterType="com.library.data.UserTable">
+          insert into library.user_table(username, password, power) values (#{username},#{password},#{power})
+    </insert>
+</mapper>

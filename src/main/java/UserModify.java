@@ -8,41 +8,41 @@
 //	ResultSet rs;
 //	JPanel panel1, panel2;
 //	Container c;
-//	JLabel UserLabel, PasswordLabel, NewPasswordLabel, PasswordConfirmLabel;
-//	JTextField UserTextField;
-//	JPasswordField PasswordTextField, NewPasswordTextField,
-//			PasswordConfirmTextField;
-//	JButton UpdateBtn, CancelBtn;
+//	JLabel userLabel, passwordLabel, NewPasswordLabel, passwordConfirmLabel;
+//	JTextField userTextField;
+//	JPasswordField passwordTextField, NewPasswordTextField,
+//			passwordConfirmTextField;
+//	JButton UpdateBtn, cancelBtn;
 //
 //	public UserModify() {
 //		super("更改密码");
 //		c = getContentPane();
 //		c.setLayout(new BorderLayout());
-//		UserLabel = new JLabel("用户名", JLabel.CENTER);
-//		PasswordLabel = new JLabel("原密码", JLabel.CENTER);
+//		userLabel = new JLabel("用户名", JLabel.CENTER);
+//		passwordLabel = new JLabel("原密码", JLabel.CENTER);
 //		NewPasswordLabel = new JLabel("新密码", JLabel.CENTER);
-//		PasswordConfirmLabel = new JLabel("确认新密码", JLabel.CENTER);
-//		UserTextField = new JTextField(10);
-//		PasswordTextField = new JPasswordField(10);
+//		passwordConfirmLabel = new JLabel("确认新密码", JLabel.CENTER);
+//		userTextField = new JTextField(10);
+//		passwordTextField = new JPasswordField(10);
 //		NewPasswordTextField = new JPasswordField(10);
-//		PasswordConfirmTextField = new JPasswordField(10);
+//		passwordConfirmTextField = new JPasswordField(10);
 //		UpdateBtn = new JButton("更新");
-//		CancelBtn = new JButton("取消");
+//		cancelBtn = new JButton("取消");
 //		UpdateBtn.addActionListener(this);
-//		CancelBtn.addActionListener(this);
+//		cancelBtn.addActionListener(this);
 //		panel1 = new JPanel();
 //		panel1.setLayout(new GridLayout(4, 2));
-//		panel1.add(UserLabel);
-//		panel1.add(UserTextField);
-//		panel1.add(PasswordLabel);
-//		panel1.add(PasswordTextField);
+//		panel1.add(userLabel);
+//		panel1.add(userTextField);
+//		panel1.add(passwordLabel);
+//		panel1.add(passwordTextField);
 //		panel1.add(NewPasswordLabel);
 //		panel1.add(NewPasswordTextField);
-//		panel1.add(PasswordConfirmLabel);
-//		panel1.add(PasswordConfirmTextField);
+//		panel1.add(passwordConfirmLabel);
+//		panel1.add(passwordConfirmTextField);
 //		panel2 = new JPanel();
 //		panel2.add(UpdateBtn);
-//		panel2.add(CancelBtn);
+//		panel2.add(cancelBtn);
 //		c.add(panel1, BorderLayout.CENTER);
 //		c.add(panel2, BorderLayout.SOUTH);
 //		setSize(300, 300);
@@ -50,21 +50,21 @@
 //	}
 //
 //	public void actionPerformed(ActionEvent e) {
-//		if (e.getSource() == CancelBtn) {
+//		if (e.getSource() == cancelBtn) {
 //			db.closeConnection();
 //			this.dispose();
 //		} else if (e.getSource() == UpdateBtn) {
 //			try {
-//				char[] password = PasswordTextField.getPassword();
+//				char[] password = passwordTextField.getPassword();
 //				String passwordSTR = new String(password);
 //				char[] newPassword = NewPasswordTextField.getPassword();
 //				String newPasswordSTR = new String(newPassword);
-//				char[] confirmPassword = PasswordConfirmTextField.getPassword();
+//				char[] confirmPassword = passwordConfirmTextField.getPassword();
 //				String confirmPasswordSTR = new String(confirmPassword);
 //				String strSQL = "use library select * from userTable where userName='"
-//						+ UserTextField.getText().trim() + "'and password='"
+//						+ userTextField.getText().trim() + "'and password='"
 //						+ passwordSTR + "'";
-//				if (UserTextField.getText().trim().equals("")) {
+//				if (userTextField.getText().trim().equals("")) {
 //					JOptionPane.showMessageDialog(null, "用户名不能为空！");
 //				} else if (passwordSTR.equals("")) {
 //					JOptionPane.showMessageDialog(null, "原密码不能为空！");
@@ -77,7 +77,7 @@
 //					} else {
 //						strSQL = "use library update userTable set password='"
 //								+ newPasswordSTR + "'where userName='"
-//								+ UserTextField.getText().trim() + "'";
+//								+ userTextField.getText().trim() + "'";
 //						if (db.updateSql(strSQL)) {
 //							JOptionPane.showMessageDialog(null, "更新密码成功！");
 //							this.dispose();

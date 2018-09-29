@@ -1,62 +1,65 @@
-//package com.librarymanager.dao;
+//package com.library.dao;
 //
-//import com.librarymanager.data.Books;
+//import com.library.data.BookBrowse;
 //import org.hibernate.Session;
 //import org.hibernate.Transaction;
 //import org.hibernate.query.Query;
 //
 //import java.util.List;
 //
-//public class BooksDAO extends BasicDAO<Books>
+//public class BookBrowseDAO extends BasicDAO<BookBrowse>
 //{
-//    private static BooksDAO booksDAO = new BooksDAO();
+//    private static BookBrowseDAO bookBrowseDAO = new BookBrowseDAO();
 //
-//    private BooksDAO() {}
+//    private BookBrowseDAO() {}
 //
-//    public static Query<Books> getQuery(String hql)
+//    public static BookBrowseDAO getInstance()
 //    {
-//        return HibernateUtil.getSession().createQuery(hql,
-//                booksDAO.getEntityClass());
+//        return bookBrowseDAO;
 //    }
 //
-//    public static Query<Books> getSQLQuery(String sql)
+//    public static Query<BookBrowse> getQuery(String hql)
+//    {
+//        return HibernateUtil.getSession().createQuery(hql,
+//                bookBrowseDAO.getEntityClass());
+//    }
+//
+//    public static Query<BookBrowse> getSQLQuery(String sql)
 //    {
 //        return HibernateUtil.getSession().createSQLQuery(sql);
 //    }
 //
-//    public static boolean addUser(Books books)
+//    public static boolean addUser(BookBrowse bookBrowse)
 //    {
-//        return booksDAO.save(books);
+//        return bookBrowseDAO.save(bookBrowse);
 //    }
 //
 //    @Override
-//    public boolean save(Books books)
+//    public boolean save(BookBrowse bookBrowse)
 //    {
 //        Session session = HibernateUtil.getSession();
 //        Transaction transaction = session.beginTransaction();
 //        try
 //        {
-//            session.save(books);
+//            session.save(bookBrowse);
 //            transaction.commit();
-//            return true;
 //        } catch (Exception ex)
 //        {
-//            ex.printStackTrace();
 //            return false;
 //        } finally
 //        {
 //            HibernateUtil.closeSession();
 //        }
-//
+//        return true;
 //    }
 //
-//    public static List<Books> selectUser(Query<Books> query)
+//    public static List<BookBrowse> selectUser(Query<BookBrowse> query)
 //    {
 //        Session session = HibernateUtil.getSession();
 //        Transaction transaction = session.beginTransaction();
 //        try
 //        {
-//            List<Books> list = query.list();
+//            List<BookBrowse> list = query.list();
 //            transaction.commit();
 //            return list;
 //        } catch (Exception ex)
@@ -69,7 +72,7 @@
 //        }
 //    }
 //
-//    public static boolean update(Query<Books> query)
+//    public static boolean delete(Query<BookBrowse> query)
 //    {
 //        Session session = HibernateUtil.getSession();
 //        Transaction transaction = session.beginTransaction();
@@ -77,6 +80,7 @@
 //        {
 //            query.executeUpdate();
 //            transaction.commit();
+//            return true;
 //        } catch (Exception ex)
 //        {
 //            return false;
@@ -84,6 +88,5 @@
 //        {
 //            HibernateUtil.closeSession();
 //        }
-//        return true;
 //    }
 //}

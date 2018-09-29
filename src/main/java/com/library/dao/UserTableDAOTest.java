@@ -1,7 +1,7 @@
-//package com.librarymanager.dao;
+//package com.library.dao;
 //
-//import com.librarymanager.data.Books;
-//import com.librarymanager.data.UserTable;
+//import com.library.data.Books;
+//import com.library.data.UserTable;
 //import org.hibernate.query.Query;
 //import org.junit.Test;
 //

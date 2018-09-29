@@ -1,6 +1,8 @@
-import com.librarymanager.dao.UserTableDAO;
-import com.librarymanager.data.UserTable;
-import org.hibernate.query.Query;
+import com.library.dao.BuildSqlSessionFactory;
+import com.library.data.UserTable;
+import com.library.mapper.UserTableMapper;
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -9,94 +11,115 @@ import java.sql.*;
 
 public class UserAdd extends JFrame implements ActionListener
 {
-    UserTable userTable = new UserTable();
-    DataBaseManager db = new DataBaseManager();
+
+    SqlSessionFactory sqlSessionFactory;
+
+    SqlSession sqlSession;
+    UserTable userTable;
     ResultSet rs;
     Container c;
     JPanel panel1, panel2;
-    JLabel UserLabel, PasswordLabel, PasswordConfirmLabel, LoginPrivelegeLabel;
-    JTextField UserTextField;
-    JPasswordField PasswordTextField, PasswordConfirmTextField;
-    JComboBox LoginPrivelegeComboBox;
-    JButton AddBtn, CancelBtn;
+    JLabel userLabel, passwordLabel, passwordConfirmLabel, loginPrivelegeLabel;
+    JTextField userTextField;
+    JPasswordField passwordTextField, passwordConfirmTextField;
+    JComboBox loginPrivelegeComboBox;
+    JButton addBtn, cancelBtn;
 
     public UserAdd()
     {
         super("添加用户");
         c = getContentPane();
         c.setLayout(new BorderLayout());
-        UserLabel = new JLabel("用户名", JLabel.CENTER);
-        PasswordLabel = new JLabel("密码", JLabel.CENTER);
-        PasswordConfirmLabel = new JLabel("确认密码", JLabel.CENTER);
-        LoginPrivelegeLabel = new JLabel("登录权限", JLabel.CENTER);
-        UserTextField = new JTextField(10);
-        PasswordTextField = new JPasswordField(10);
-        PasswordConfirmTextField = new JPasswordField(10);
-        LoginPrivelegeComboBox = new JComboBox();
-        LoginPrivelegeComboBox.addItem("系统管理员");
-        LoginPrivelegeComboBox.addItem("书籍管理员");
-        LoginPrivelegeComboBox.addItem("借阅管理员");
-        AddBtn = new JButton("添加");
-        CancelBtn = new JButton("取消");
-        AddBtn.addActionListener(this);
-        CancelBtn.addActionListener(this);
+        userLabel = new JLabel("用户名", JLabel.CENTER);
+        passwordLabel = new JLabel("密码", JLabel.CENTER);
+        passwordConfirmLabel = new JLabel("确认密码", JLabel.CENTER);
+        loginPrivelegeLabel = new JLabel("登录权限", JLabel.CENTER);
+        userTextField = new JTextField(10);
+        passwordTextField = new JPasswordField(10);
+        passwordConfirmTextField = new JPasswordField(10);
+        loginPrivelegeComboBox = new JComboBox();
+        loginPrivelegeComboBox.addItem("系统管理员");
+        loginPrivelegeComboBox.addItem("书籍管理员");
+        loginPrivelegeComboBox.addItem("借阅管理员");
+        addBtn = new JButton("添加");
+        cancelBtn = new JButton("取消");
+        addBtn.addActionListener(this);
+        cancelBtn.addActionListener(this);
         panel1 = new JPanel();
         panel1.setLayout(new GridLayout(4, 2));
-        panel1.add(UserLabel);
-        panel1.add(UserTextField);
-        panel1.add(PasswordLabel);
-        panel1.add(PasswordTextField);
-        panel1.add(PasswordConfirmLabel);
-        panel1.add(PasswordConfirmTextField);
-        panel1.add(LoginPrivelegeLabel);
-        panel1.add(LoginPrivelegeComboBox);
+        panel1.add(userLabel);
+        panel1.add(userTextField);
+        panel1.add(passwordLabel);
+        panel1.add(passwordTextField);
+        panel1.add(passwordConfirmLabel);
+        panel1.add(passwordConfirmTextField);
+        panel1.add(loginPrivelegeLabel);
+        panel1.add(loginPrivelegeComboBox);
         c.add(panel1, BorderLayout.CENTER);
         panel2 = new JPanel();
-        panel2.add(AddBtn);
-        panel2.add(CancelBtn);
+        panel2.add(addBtn);
+        panel2.add(cancelBtn);
         c.add(panel2, BorderLayout.SOUTH);
         setSize(300, 300);
+        init();
+    }
 
+    /**
+     * 进行数据库访问的一些初始化操作
+     */
+    public void init()
+    {
+        sqlSessionFactory = BuildSqlSessionFactory.buildSqlSessionFactory();
+        sqlSession = sqlSessionFactory.openSession();
     }
 
     public void actionPerformed(ActionEvent e)
     {
-        if (e.getSource() == CancelBtn)
+        if (e.getSource() == cancelBtn)
         {
             this.dispose();
-        } else if (e.getSource() == AddBtn)
+        } else if (e.getSource() == addBtn)
         {
-            if (UserTextField.getText().trim().equals(""))
+            if (userTextField.getText().trim().equals(""))
             {
                 JOptionPane.showMessageDialog(null, "用户名不能为空！");
-            } else if (PasswordTextField.getText().trim().equals(""))
+            } else if (passwordTextField.getText().trim().equals(""))
             {
                 JOptionPane.showMessageDialog(null, "密码不能为空！");
-            } else if (!PasswordTextField.getText().trim().equals(
-                    PasswordConfirmTextField.getText().trim()))
+            } else if (!passwordTextField.getText().trim().equals(
+                    passwordConfirmTextField.getText().trim()))
             {
                 JOptionPane.showMessageDialog(null, "两次输入的密码不一致！");
             } else
             {
-                String hql = "from UserTable where userName=?";
-                Query<UserTable> query = UserTableDAO.getQuery(hql);
-                userTable.setUsername(UserTextField.getText().trim());
-                query.setString(0, userTable.getUsername());
-                if (UserTableDAO.selectUser(query) != null)
+                UserTableMapper userTableMapper = sqlSession.getMapper(UserTableMapper.class);
+                userTable = userTableMapper.select(userTextField.getText().trim());
+                if (userTable != null)
                 {
                     JOptionPane.showMessageDialog(null, "此用户已经存在，请重新输入用户名！");
                 } else
                 {
-                    userTable.setPassword(PasswordTextField.getText().trim());
-                    userTable.setPower(LoginPrivelegeComboBox.getSelectedItem().toString());
-
-                    if (UserTableDAO.addUser(userTable))
+                    userTable = new UserTable();
+                    userTable.setUsername(userTextField.getText().trim());
+                    userTable.setPassword(passwordTextField.getText().trim());
+                    userTable.setPower(loginPrivelegeComboBox.getSelectedItem().toString());
+                    /*
+                    如果没捕获异常则表示添加成功
+                    如果捕获异常则添加失败
+                     */
+                    try
                     {
+                        userTableMapper.addUser(userTable);
+                        sqlSession.commit();
                         JOptionPane.showMessageDialog(null, "添加用户成功！");
-
-                    } else
+                    } catch (Exception ex)
                     {
+                        sqlSession.rollback();
                         JOptionPane.showMessageDialog(null, "添加用户失败！");
+                    } finally
+                    {
+                        if (sqlSession != null)
+                            sqlSession.close();
                     }
                 }
             }

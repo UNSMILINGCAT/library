@@ -1,4 +1,4 @@
-//package com.librarymanager.dao;
+//package com.library.dao;
 //
 //import org.hibernate.Session;
 //import org.hibernate.SessionFactory;

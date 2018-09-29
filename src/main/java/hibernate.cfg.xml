@@ -8,11 +8,11 @@
         <!--<property name="connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>-->
         <!--<property name="connection.username">sa</property>-->
         <!--<property name="connection.password">123456</property>-->
-        <!--<mapping class="com.librarymanager.data.UserTable"/>-->
-        <!--<mapping resource="com/librarymanager/data/UserTable.hbm.xml"/>-->
-        <!--<mapping resource="com/librarymanager/data/BookBrowse.hbm.xml"/>-->
-        <!--<mapping class="com.librarymanager.data.BookBrowse"/>-->
-        <!--<mapping class="com.librarymanager.data.Books"/>-->
-        <!--<mapping resource="com/librarymanager/data/Books.hbm.xml"/>-->
+        <!--<mapping class="com.libraryserTable"/>-->
+        <!--<mapping resource="com/library/data/UserTable.hbm.xml"/>-->
+        <!--<mapping resource="com/library/data/BookBrowse.hbm.xml"/>-->
+        <!--<mapping class="com.libraryookBrowse"/>-->
+        <!--<mapping class="com.libraryooks"/>-->
+        <!--<mapping resource="com/library/data/Books.hbm.xml"/>-->
     <!--</session-factory>-->
 <!--</hibernate-configuration>-->

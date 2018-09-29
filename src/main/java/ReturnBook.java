@@ -12,7 +12,7 @@
 //			ReturnedDateLabel,ReturnedCommentLabel;
 //	JTextField ReturnedBookStudentTextField,
 //			ReturnedDateTextField,ReturnedCommentTextField;
-//	JButton ClearBtn,YesBtn,CancelBtn;
+//	JButton ClearBtn,YesBtn,cancelBtn;
 //	JComboBox BookNameComboBox=new JComboBox();
 //	public ReturnBook()
 //	{
@@ -59,18 +59,18 @@
 //		panel2.setLayout(new GridLayout(1,3));
 //		ClearBtn=new JButton("清空");
 //		YesBtn=new JButton("确定");
-//		CancelBtn=new JButton("取消");
+//		cancelBtn=new JButton("取消");
 //		ClearBtn.addActionListener(this);
 //		YesBtn.addActionListener(this);
-//		CancelBtn.addActionListener(this);
+//		cancelBtn.addActionListener(this);
 //		panel2.add(ClearBtn);
 //		panel2.add(YesBtn);
-//		panel2.add(CancelBtn);
+//		panel2.add(cancelBtn);
 //		c.add(panel2,BorderLayout.SOUTH);
 //	}
 //	public void actionPerformed(ActionEvent e)
 //	{
-//		if(e.getSource()==CancelBtn)
+//		if(e.getSource()==cancelBtn)
 //		{
 //			this.dispose();
 //		}

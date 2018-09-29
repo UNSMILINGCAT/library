@@ -1,7 +1,11 @@
-package com.librarymanager.data;
+package com.library.data;
+
+import org.springframework.stereotype.Component;
 
 import java.util.Objects;
 
+
+@Component(value = "userTable")
 public class UserTable
 {
     private int id;

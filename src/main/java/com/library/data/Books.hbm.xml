@@ -4,7 +4,7 @@
         <!--"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">-->
 <!--<hibernate-mapping>-->
 
-    <!--<class name="com.librarymanager.data.Books" table="books" schema="dbo" catalog="library">-->
+    <!--<class name="com.libraryooks" table="books" schema="dbo" catalog="library">-->
         <!--<id name="id">-->
             <!--<column name="ID" sql-type="numeric(3)" precision="3"/>-->
             <!--<generator class="increment"/>-->

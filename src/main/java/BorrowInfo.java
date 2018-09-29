@@ -13,7 +13,7 @@
 //			BorrowedCommentLabel;
 //	JTextField BorrowedBookStudentTextField, BorrowedBookNameTextField,
 //			BorrowedDateTextField, BorrowedCommentTextField;
-//	JButton ClearBtn, YesBtn, UpdateBtn, CancelBtn;
+//	JButton ClearBtn, YesBtn, UpdateBtn, cancelBtn;
 //
 //	public BorrowInfo() {
 //		super("修改书籍出借信息");
@@ -46,16 +46,16 @@
 //		ClearBtn = new JButton("清空");
 //		YesBtn = new JButton("确定");
 //		UpdateBtn = new JButton("更新");
-//		CancelBtn = new JButton("取消");
+//		cancelBtn = new JButton("取消");
 //		ClearBtn.addActionListener(this);
 //		YesBtn.addActionListener(this);
 //		UpdateBtn.addActionListener(this);
 //		UpdateBtn.setEnabled(false);
-//		CancelBtn.addActionListener(this);
+//		cancelBtn.addActionListener(this);
 //		panel2.add(ClearBtn);
 //		panel2.add(YesBtn);
 //		panel2.add(UpdateBtn);
-//		panel2.add(CancelBtn);
+//		panel2.add(cancelBtn);
 //		c.add(panel2, BorderLayout.SOUTH);
 //	}
 //
@@ -65,7 +65,7 @@
 //			BorrowedBookNameTextField.setText("");
 //			BorrowedDateTextField.setText("");
 //			BorrowedCommentTextField.setText("");
-//		} else if (e.getSource() == CancelBtn) {
+//		} else if (e.getSource() == cancelBtn) {
 //			this.dispose();
 //		} else if (e.getSource() == YesBtn) {
 //			try {
